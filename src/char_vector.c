@@ -43,14 +43,25 @@ int char_vector_realloc(char_vector* v)
 
 int char_vector_push_back(char_vector* v, char c)
 {
-	if (v->data == NULL)
-		return -1;
-
 	if (v->size == v->capacity)
 		char_vector_realloc(v);
 
 	v->data[v->size] = c;
 	++v->size;
 
+	return 0;
+}
+
+int char_vector_shrink_to_fit(char_vector* v)
+{
+	if (v->capacity != v->size) {
+		v->capacity = v->size;
+		char* realloc_data = (char*)realloc(v->data, v->capacity);
+		if (realloc_data == NULL)
+			return -1;
+		
+		v->data = realloc_data;
+	}
+	
 	return 0;
 }
