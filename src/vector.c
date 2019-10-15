@@ -201,7 +201,7 @@ int float_vector_realloc(float_vector* v)
 	return 0;
 }
 
-int float_vector_push_back(float_vector* v, int n)
+int float_vector_push_back(float_vector* v, float n)
 {
 	if (v->size == v->capacity)
 		if (float_vector_realloc(v) != 0)
@@ -281,7 +281,7 @@ int double_vector_realloc(double_vector* v)
 	return 0;
 }
 
-int double_vector_push_back(double_vector* v, int n)
+int double_vector_push_back(double_vector* v, double n)
 {
 	if (v->size == v->capacity)
 		if (double_vector_realloc(v) != 0)
