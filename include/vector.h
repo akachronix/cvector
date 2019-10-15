@@ -44,14 +44,14 @@ int int_vector_shrink_to_fit(int_vector* v);
 int float_vector_init(float_vector* v, size_t init_capacity);
 int float_vector_destroy(float_vector* v);
 int float_vector_realloc(float_vector* v);
-int float_vector_push_back(float_vector* v, int n);
+int float_vector_push_back(float_vector* v, float n);
 int float_vector_push_back_v(float_vector* v, int args, ...);
 int float_vector_shrink_to_fit(float_vector* v);
 
 int double_vector_init(double_vector* v, size_t init_capacity);
 int double_vector_destroy(double_vector* v);
 int double_vector_realloc(double_vector* v);
-int double_vector_push_back(double_vector* v, int n);
+int double_vector_push_back(double_vector* v, double n);
 int double_vector_push_back_v(double_vector* v, int args, ...);
 int double_vector_shrink_to_fit(double_vector* v);
 
