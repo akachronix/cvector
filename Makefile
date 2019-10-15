@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -pedantic
+CFLAGS=-Wall -pedantic -O2
 CLDFLAGS=
 CSTD=-std=c11
 
@@ -15,7 +15,7 @@ TARGET=cvector
 
 all: $(TARGET)
 
-$(TARGET): clean main.o char_vector.o
+$(TARGET): clean main.o vector.o
 	mkdir $(BINDIR) $(OBJDIR)
 	mv *.o $(OBJDIR)
 	$(CC) $(CSTD) -I$(INCLUDEDIR) -L$(LIBDIR) $(CFLAGS) -g -s $(OBJDIR)/$(word 2, $^) $(OBJDIR)/$(word 3, $^) -o $(BINDIR)/$(TARGET) $(CLDFLAGS)
@@ -23,7 +23,7 @@ $(TARGET): clean main.o char_vector.o
 main.o: $(SRCDIR)/main.c
 	$(CC) $(CSTD) -I$(INCLUDEDIR) -L$(LIBDIR) $(CFLAGS) -c $^
 
-char_vector.o: $(SRCDIR)/char_vector.c
+vector.o: $(SRCDIR)/vector.c
 	$(CC) $(CSTD) -I$(INCLUDEDIR) -L$(LIBDIR) $(CFLAGS) -c $^
 
 clean:
