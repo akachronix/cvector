@@ -388,6 +388,9 @@ int float_vector_push_back(float_vector* v, float n)
 
 int float_vector_push_back_v(float_vector* v, int args, ...)
 {
+	if (args >= 6)
+		return -1;
+
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
