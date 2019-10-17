@@ -55,7 +55,10 @@ int bool_vector_push_back(bool_vector* v, bool b)
 }
 
 int bool_vector_push_back_v(bool_vector* v, int args, ...)
-{	
+{
+	if (args >= 6)
+		return -1;
+	
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
@@ -135,7 +138,10 @@ int char_vector_push_back(char_vector* v, char c)
 }
 
 int char_vector_push_back_v(char_vector* v, int args, ...)
-{	
+{
+	if (args >= 6)
+		return -1;
+	
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
@@ -216,6 +222,9 @@ int int_vector_push_back(int_vector* v, int n)
 
 int int_vector_push_back_v(int_vector* v, int args, ...)
 {
+	if (args >= 6)
+		return -1;
+
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
@@ -296,6 +305,9 @@ int unsigned_int_vector_push_back(unsigned_int_vector* v, unsigned int n)
 
 int unsigned_int_vector_push_back_v(unsigned_int_vector* v, int args, ...)
 {
+	if (args >= 6)
+		return -1;
+
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
@@ -456,6 +468,9 @@ int double_vector_push_back(double_vector* v, double n)
 
 int double_vector_push_back_v(double_vector* v, int args, ...)
 {
+	if (args >= 6)
+		return -1;
+
 	va_list vl;
 	va_start(vl, args);
 	for (int i = 0; i < args; ++i) {
